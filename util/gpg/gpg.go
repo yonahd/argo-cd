@@ -280,7 +280,7 @@ func InitializeGnuPG() error {
 		}
 	}()
 
-	cmd := exec.Command("gpg", "--no-permission-warning", "--logger-fd", "1", "--batch", "--gen-key", f.Name())
+	cmd := exec.Command("gpg", "--debug-level", "guru", "--no-permission-warning", "--logger-fd", "1", "--batch", "--gen-key", f.Name())
 	cmd.Env = getGPGEnviron()
 
 	_, err = executil.Run(cmd)
